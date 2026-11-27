@@ -153,6 +153,9 @@ a:focus-visible,summary:focus-visible{outline:3px solid var(--cobalt);outline-of
 .months{display:flex;justify-content:space-between;color:var(--a-muted);font-size:9.5px;margin:6px 0 3px}
 .grid{display:grid;grid-template-columns:repeat(16,1fr);grid-template-rows:repeat(7,1fr);grid-auto-flow:column;gap:2.5px}
 .grid b{aspect-ratio:1;border-radius:2.5px;background:var(--a-empty)}
+.grid b{transition:background-color .12s}
+.grid b.pop{animation:pop .5s cubic-bezier(.3,1.7,.5,1)}
+@keyframes pop{0%{transform:scale(.3)}100%{transform:scale(1)}}
 .hcard .foot{color:var(--a-muted);font-size:10.5px;margin-top:6px}
 .rtitle{text-align:center;font-weight:600;margin:12px 0 16px}
 .ycard{background:var(--a-card);border-radius:18px;padding:14px}
@@ -366,5 +369,33 @@ for(var i=0;i<n;i++){s=(s*9301+49297)%233280;var on=s/233280<.8;h+='<b'+(on?' st
 })();
 </script>
 
+<script>
+/* Habit grids fill in day by day and the counts climb when the card scrolls into view */
+(function(){
+  if(!('IntersectionObserver' in window)) return;
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  document.querySelectorAll('.hcard').forEach(function(card){
+    var g=card.querySelector('.grid'); if(!g) return;
+    var on=[].slice.call(g.children).filter(function(c){return c.style.background});
+    var colors=on.map(function(c){return c.style.background});
+    var nums=[].slice.call(card.querySelectorAll('.h i,.foot')).map(function(el){return {el:el,t:el.textContent}});
+    var running=false;
+    function setNums(p){nums.forEach(function(n){n.el.textContent=n.t.replace(/\d+/g,function(m){return Math.round(+m*p)})})}
+    function play(){
+      if(running||!on.length) return; running=true;
+      on.forEach(function(c){c.style.background='';c.classList.remove('pop')});
+      setNums(0);
+      var dur=1900,t0=performance.now(),k=0;
+      (function step(now){
+        var p=Math.min(1,(now-t0)/dur), e=1-Math.pow(1-p,2), target=Math.round(e*on.length);
+        while(k<target){on[k].style.background=colors[k];k++}
+        setNums(e);
+        if(p<1) requestAnimationFrame(step); else {on[on.length-1].classList.add('pop'); running=false}
+      })(t0);
+    }
+    new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting) play()})},{threshold:.6}).observe(card);
+  });
+})();
+</script>
 </body>
 </html>
