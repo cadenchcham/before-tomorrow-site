@@ -9,11 +9,26 @@
 <meta property="og:title" content="Before Tomorrow">
 <meta property="og:description" content="A simple weekly to-do list and habit tracker. Let the small things add up.">
 <meta property="og:url" content="https://beforetomorrow.app/">
-<meta property="og:image" content="https://beforetomorrow.app/icon.png">
+<meta property="og:image" content="https://beforetomorrow.app/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Before Tomorrow: Let the small things add up.">
+<meta property="og:site_name" content="Before Tomorrow">
+<meta name="twitter:card" content="summary_large_image">
 <meta property="og:type" content="website">
 <link rel="canonical" href="https://beforetomorrow.app/">
-<link rel="icon" href="icon.png">
-<link rel="apple-touch-icon" href="icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#FBFBFD" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0B0C10" media="(prefers-color-scheme: dark)">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Before Tomorrow: To-Do List",
+"description":"A simple weekly to-do list and habit tracker for iPhone, iPad and Mac.",
+"applicationCategory":"ProductivityApplication","operatingSystem":"iOS, iPadOS, macOS",
+"url":"https://beforetomorrow.app/","downloadUrl":"https://apps.apple.com/app/id6837536057",
+"image":"https://beforetomorrow.app/img/og.png",
+"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+</script>
 <script>try{var t=localStorage.getItem('bt-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 </head>
 <body>
@@ -69,17 +84,15 @@ nav .links{display:flex;gap:22px}
 /* Hero */
 .hero .wrap{display:flex;flex-direction:column;align-items:center;text-align:center;gap:22px;padding-block:56px 0}
 .hero .icon{width:96px;height:96px;border-radius:22px;box-shadow:var(--shadow)}
-.hero .lead{max-width:34ch}
+.hero .lead{max-width:42ch}
 .hero .sub{font-size:.85rem;color:var(--muted)}
 .hero-screens{display:flex;justify-content:center;align-items:flex-end;gap:28px;margin-top:28px}
 .hero-screens .phone:nth-child(2){transform:translateY(40px)}
 
 /* App Store badge (placeholder: swap for Apple's official badge) */
-.badge{display:inline-flex;align-items:center;gap:8px;background:var(--badge-bg);color:var(--badge-fg);border-radius:12px;padding:8px 18px 8px 14px;text-decoration:none;line-height:1.05;text-align:left}
-.badge svg{width:24px;height:24px;fill:currentColor}
-.badge small{display:block;font-size:.65rem}
-.badge b{font-size:1.2rem;font-weight:600;letter-spacing:-.01em}
-.badge:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var(--cobalt);outline-offset:3px}
+.badge{display:inline-block;line-height:0;border-radius:10px}
+.badge img{height:53px;width:auto}
+a:focus-visible,summary:focus-visible{outline:3px solid var(--cobalt);outline-offset:3px}
 
 /* Feature bands */
 .feature{padding-block:clamp(72px,10vw,130px)}
@@ -159,16 +172,16 @@ nav .links{display:flex;gap:22px}
 .devices{padding-block:clamp(72px,10vw,130px);text-align:center}
 .devices .wrap{display:flex;flex-direction:column;align-items:center;gap:18px}
 .devices .lead{max-width:40ch}
-.trio{display:flex;align-items:flex-end;justify-content:center;gap:18px;margin-top:30px;flex-wrap:wrap}
-.mac{width:min(460px,100%);aspect-ratio:16/10;background:var(--screen);border-radius:14px;box-shadow:var(--shadow);border:1px solid var(--line);display:grid;grid-template-columns:32% 1fr;overflow:hidden}
-.mac .side{background:var(--band);padding:14px 10px;display:flex;flex-direction:column;gap:7px}
-.mac .side b{height:10px;border-radius:3px;background:var(--line)}
-.mac .side b.on{background:var(--ios-blue);opacity:.7}
-.mac .main{padding:16px;display:flex;flex-direction:column;gap:8px}
-.mac .main b{height:9px;border-radius:3px;background:var(--line)}
-.ipad{width:min(230px,60%);aspect-ratio:3/4;background:var(--screen);border-radius:18px;box-shadow:var(--shadow);border:1px solid var(--line);padding:16px;display:flex;flex-direction:column;gap:8px}
-.ipad b,.mini b{height:8px;border-radius:3px;background:var(--line)}
-.mini{width:min(110px,30%);aspect-ratio:9/19;background:var(--screen);border-radius:20px;box-shadow:var(--shadow);border:1px solid var(--line);padding:22px 10px;display:flex;flex-direction:column;gap:7px}
+.stage{position:relative;width:min(920px,100%);margin:40px auto 0;padding:0 0 9%}
+.stage figure{margin:0}
+.stage img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
+.macwin{width:84%;margin:0 auto!important;border-radius:12px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);-webkit-mask-image:linear-gradient(#000 70%,transparent);mask-image:linear-gradient(#000 70%,transparent)}
+.dev{position:absolute;bottom:0;background:#111;box-shadow:var(--shadow);overflow:hidden}
+.ipadf{left:0;width:30%;aspect-ratio:3/4;border:7px solid #111;border-radius:22px}
+.ipadf img{border-radius:14px}
+.phonef{right:3%;width:17%;aspect-ratio:9/19.5;border:5px solid #111;border-radius:28px;bottom:-4%}
+.phonef img{border-radius:22px}
+@media (max-width:600px){.ipadf{border-width:4px;border-radius:12px}.ipadf img{border-radius:8px}.phonef{border-width:3px;border-radius:16px}.phonef img{border-radius:12px}}
 .tick-row{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 26px;color:var(--muted);font-size:.95rem;margin-top:8px}
 .tick-row span::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--lime);margin-right:8px;vertical-align:middle}
 
@@ -185,6 +198,8 @@ nav .links{display:flex;gap:22px}
 .plan ul{list-style:none;padding:0;margin:6px 0 0;display:flex;flex-direction:column;gap:8px;font-size:.95rem}
 .plan li::before{content:"✓";color:var(--cobalt);font-weight:700;margin-right:8px}
 .pill{align-self:flex-start;background:var(--lime);color:#111;font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:4px 10px;border-radius:999px}
+.pill.ghost{visibility:hidden}
+.pricing .head .lead{max-width:44ch}
 .fine{text-align:center;color:var(--muted);font-size:.85rem;margin-top:22px}
 
 /* FAQ */
@@ -231,11 +246,8 @@ footer .bottom a{color:var(--muted);margin-left:18px}
 <header class="hero"><div class="wrap">
   <svg class="icon" viewBox="0 0 100 100" role="img" aria-label="Before Tomorrow app icon"><rect width="100" height="100" fill="#1F3BFF"/><g fill="#fff" transform="translate(9 9) scale(.82)"><circle cx="17" cy="38" r="9"/><circle cx="39" cy="38" r="9"/><circle cx="61" cy="38" r="9"/><circle cx="83" cy="38" r="9"/><circle cx="28" cy="62" r="9"/><circle cx="50" cy="62" r="9"/></g><circle cx="68.04" cy="59.84" r="5.95" fill="none" stroke="#8FD400" stroke-width="2.87"/></svg>
   <h1>Let the small things add up.</h1>
-  <p class="lead">A simple weekly to-do list and habit tracker for iPhone, iPad and Mac.</p>
-  <a class="badge" href="https://apps.apple.com/app/id6837536057" aria-label="Download on the App Store">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.5 2-3.6-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9-.7 0-1.8-.8-3-.8-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.2.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.8-2.3.9-1.3 1.3-2.5 1.3-2.6 0 0-2.5-1-2.5-3.6zM14.1 5.6c.6-.8 1.1-1.8 1-2.9-.9 0-2.1.6-2.7 1.4-.6.7-1.1 1.8-1 2.8 1 .1 2.1-.5 2.7-1.3z"/></svg>
-    <span><small>Download on the</small><b>App Store</b></span>
-  </a>
+  <p class="lead">Get the week out of your head. A simple weekly to-do list and habit tracker for iPhone, iPad and Mac.</p>
+  <a class="badge" href="https://apps.apple.com/app/id6837536057"><img src="img/app-store-badge.svg" alt="Download on the App Store" width="160" height="53"></a>
   <p class="sub">Free to download. No account needed.</p>
 
   <div class="hero-screens"><div class="phone" aria-label="Week list"><div class="sb"><span>9:41</span><span class="island"></span><span class="ic"><b></b></span></div><div class="body"><div class="navrow"><span class="circ">‹</span><span class="circ ">···</span></div><div class="lt orange">My Week</div><div class="meta">23 Completed • <span>Clear</span></div><div class="day past">Wednesday</div><div class="row past"><span class="c"></span><span class="t">Submit travel expenses</span><span class="end"><span style="color:var(--red)">ⓘ Wed</span></span></div><div class="day">Friday · today</div><div class="row "><span class="c"></span><span class="t">Lights out by 12</span><span class="end"><span class="dot" style="background:#2C4A9A"></span><svg class="rep" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 5V4a1.5 1.5 0 0 1 1.5-1.5H10M8.5 1 10 2.5 8.5 4M10 7v1a1.5 1.5 0 0 1-1.5 1.5H2M3.5 11 2 9.5 3.5 8"/></svg></span></div><div class="row "><span class="c"></span><span class="t">Phone outside the bedroom</span><span class="end"><span class="dot" style="background:#8E5BEA"></span><svg class="rep" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 5V4a1.5 1.5 0 0 1 1.5-1.5H10M8.5 1 10 2.5 8.5 4M10 7v1a1.5 1.5 0 0 1-1.5 1.5H2M3.5 11 2 9.5 3.5 8"/></svg></span></div><div class="row "><span class="c"></span><span class="t">Leg day</span><span class="end"><span class="dot" style="background:#0A84FF"></span><svg class="rep" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 5V4a1.5 1.5 0 0 1 1.5-1.5H10M8.5 1 10 2.5 8.5 4M10 7v1a1.5 1.5 0 0 1-1.5 1.5H2M3.5 11 2 9.5 3.5 8"/></svg></span></div><div class="row "><span class="c"></span><span class="t">Japanese 15 min</span><span class="end"><span class="dot" style="background:#E8476B"></span><svg class="rep" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 5V4a1.5 1.5 0 0 1 1.5-1.5H10M8.5 1 10 2.5 8.5 4M10 7v1a1.5 1.5 0 0 1-1.5 1.5H2M3.5 11 2 9.5 3.5 8"/></svg></span></div><div class="row "><span class="c"></span><span class="t">Pick up the ring</span><span class="end"></span></div><div class="row "><span class="c"></span><span class="t">Buy eggs</span><span class="end"></span></div><div class="day later">Saturday</div><div class="row "><span class="c"></span><span class="t">Long run</span><span class="end"><span class="dot" style="background:#E8642C"></span><svg class="rep" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 5V4a1.5 1.5 0 0 1 1.5-1.5H10M8.5 1 10 2.5 8.5 4M10 7v1a1.5 1.5 0 0 1-1.5 1.5H2M3.5 11 2 9.5 3.5 8"/></svg></span></div><div class="row "><span class="c"></span><span class="t">Gift for Mia&#39;s mum</span><span class="end"></span></div></div><div class="fab">+</div><div class="tabbar"><span class="on"><i></i>Lists</span><span class=""><i></i>Habits</span><span class=""><i></i>Review</span></div></div><div class="phone grouped" aria-label="Review"><div class="sb"><span>9:41</span><span class="island"></span><span class="ic"><b></b></span></div><div class="body"><div class="rtitle">Review</div><div class="ycard"><div class="yr">2026<span>‹ ›</span></div><div class="sum"><svg width="58" height="58" viewBox="0 0 58 58"><circle cx="29" cy="29" r="24" fill="none" stroke="var(--a-empty)" stroke-width="6"/><circle cx="29" cy="29" r="24" fill="none" stroke="#5E5CE6" stroke-width="6" stroke-linecap="round" stroke-dasharray="120.6 150.8" transform="rotate(-90 29 29)"/><text x="29" y="34" text-anchor="middle" font-size="16" font-weight="600" fill="currentColor">8</text></svg><div><b>8 of 10 resolutions</b><small>2 still open · 0 skipped</small></div></div></div><div class="sec green">Done</div><div class="lcard"><div class="row done"><span class="gc">✓</span><span class="t">Phone-free bedroom</span><span class="end">Feb</span></div><div class="row done"><span class="gc">✓</span><span class="t">Half marathon under 1:50</span><span class="end">May</span></div><div class="row done"><span class="gc">✓</span><span class="t">Finish Genki II</span><span class="end">Jul</span></div></div><div class="sec grey">Still open</div><div class="lcard"><div class="row"><span class="c"></span><span class="t">Pass JLPT N4</span><span class="end" style="color:var(--a-muted)">Dec</span></div><div class="row"><span class="c"></span><span class="t">Propose to Mia</span><span class="end" style="color:var(--a-muted)">Dec</span></div></div></div><div class="tabbar"><span class=""><i></i>Lists</span><span class=""><i></i>Habits</span><span class="on"><i></i>Review</span></div></div></div>
@@ -262,10 +274,10 @@ footer .bottom a{color:var(--muted);margin-left:18px}
   <span class="eyebrow">iPhone, iPad and Mac</span>
   <h2>One list, everywhere you are.</h2>
   <p class="lead">Buy once and use it on all your devices. Everything syncs through your own iCloud.</p>
-  <div class="trio" aria-hidden="true">
-    <div class="mini"><b style="width:60%"></b><b></b><b></b><b style="width:80%"></b><b></b></div>
-    <div class="mac"><div class="side"><b class="on"></b><b></b><b></b><b></b><b style="width:70%"></b></div><div class="main"><b style="width:40%;height:14px"></b><b></b><b></b><b style="width:75%"></b><b></b><b style="width:60%"></b></div></div>
-    <div class="ipad"><b style="width:50%;height:12px"></b><b></b><b></b><b style="width:70%"></b><b></b><b></b></div>
+  <div class="stage">
+    <figure class="macwin"><img src="img/mac-week.jpg" width="1600" height="996" loading="lazy" alt="Before Tomorrow on Mac: the week list with lists in the sidebar"></figure>
+    <figure class="dev ipadf"><img src="img/ipad-habits.jpg" width="721" height="900" loading="lazy" alt="Before Tomorrow on iPad: habit grids with streaks"></figure>
+    <figure class="dev phonef"><img src="img/iphone-review.jpg" width="341" height="720" loading="lazy" alt="Before Tomorrow on iPhone: the year Review"></figure>
   </div>
   <div class="tick-row"><span>No account</span><span>No ads</span><span>No tracking</span><span>No notifications</span></div>
 </div></section>
@@ -274,9 +286,11 @@ footer .bottom a{color:var(--muted);margin-left:18px}
   <div class="head">
     <span class="eyebrow">Pricing</span>
     <h2>Free to start. Pro when you want more.</h2>
+    <p class="lead">Use it free for as long as you like. If it sticks, Pro unlocks your whole year in Review and the full Mac app.</p>
   </div>
   <div class="plans">
     <div class="plan">
+      <span class="pill ghost" aria-hidden="true">Free</span>
       <h3>Free</h3>
       <div class="price">$0</div>
       <div class="per">Forever</div>
@@ -304,10 +318,7 @@ footer .bottom a{color:var(--muted);margin-left:18px}
 <footer>
   <div class="wrap cta">
     <h2>Plan the week. Let the small things add up.</h2>
-    <a class="badge" href="https://apps.apple.com/app/id6837536057" aria-label="Download on the App Store">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.5 2-3.6-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9-.7 0-1.8-.8-3-.8-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.2.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.600-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.8-2.3.9-1.3 1.3-2.5 1.3-2.6 0 0-2.5-1-2.5-3.6zM14.1 5.6c.6-.8 1.1-1.8 1-2.9-.9 0-2.100.6-2.7 1.4-.6.7-1.100 1.8-1 2.8 1 .1 2.1-.5 2.7-1.3z"/></svg>
-      <span><small>Download on the</small><b>App Store</b></span>
-    </a>
+    <a class="badge" href="https://apps.apple.com/app/id6837536057"><img src="img/app-store-badge.svg" alt="Download on the App Store" width="160" height="53"></a>
   </div>
   <div class="wrap bottom">
     <span>© 2026 Before Tomorrow</span>
